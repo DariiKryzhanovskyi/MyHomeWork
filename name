@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyHomeWork
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name = "Darii";
+            string surname = "Kryzhanovskyi";
+
+            Console.WriteLine(surname + " " + name);
+
+            (name, surname) = (surname, name);
+
+            Console.WriteLine(name);
+            Console.WriteLine(surname);
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
