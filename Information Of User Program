@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyHomeWork
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string name, signsOfZodiac, age, yourWork, contry;
+            string informationOfUser;
+
+            Console.Write("Как вас зовут: ");
+            name = Console.ReadLine();
+
+            Console.Write("Ваш знак зодиака: ");
+            signsOfZodiac = Console.ReadLine();
+
+            Console.Write("Сколько вам лет: ");
+            age = Console.ReadLine();
+
+            Console.Write("Кем вы работаете: ");
+            yourWork = Console.ReadLine();
+
+            Console.Write("В какой стране проживаете: ");
+            contry = Console.ReadLine();
+
+            informationOfUser = $"Вас зовут: {name}, вам {age} лет, вы проживаете в стране: {contry}, вы работаете: {yourWork}, ваш знак зодиака: {signsOfZodiac}.";
+
+            Console.WriteLine(informationOfUser);
+
+            Console.ReadLine();
+        }
+    }
+}
