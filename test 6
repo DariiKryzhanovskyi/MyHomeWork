@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyHomeWork
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int pictures = 52;
+            int rows = 3;
+
+            int picturesInRow = pictures / rows;
+            int picturesRemaining = pictures % rows;
+
+            Console.WriteLine($"Рядов: {picturesInRow}");
+            Console.WriteLine($"Картинки оставшимися: {picturesRemaining}");
+
+            Console.ReadKey();
+        }
+    }
+}
