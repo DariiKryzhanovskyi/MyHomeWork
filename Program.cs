@@ -4,25 +4,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _7DaysStudyPrograming_1_
+namespace MyHomeWork
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            string nameOfGuitar = "Yamaha";
-            int attemps = 3;
-            float gradeOfYear = 10.0f;
-            byte maxMoney = 112;
-            sbyte minMoney = 30;
-            short timeOfAttemps = 3;
-            long kilometers = 1000;
-            ulong meters = 50;
-            double phoneLength = 10;
-            ushort guitarStrings = 6;
+            int gold;
+            int crystal = 0;
+            int convertGoldToCrystal;
+            int priceGoldinCrystal = 15;
 
-            
+            Console.Write("Сколько у вас золота?: ");
+            gold = Convert.ToInt32(Console.ReadLine());
 
+            Console.Write($"Один кристал стоит {priceGoldinCrystal}. Сколько кристалов вам нужно: ");
+            convertGoldToCrystal = Convert.ToInt32(Console.ReadLine());
+
+            if (gold >= priceGoldinCrystal)
+            {
+                crystal += convertGoldToCrystal;
+                gold -= priceGoldinCrystal * convertGoldToCrystal;
+            }
+            else
+            {
+                Console.WriteLine($"Вам нехватает {priceGoldinCrystal - gold} золота.");
+            }
+
+            Console.WriteLine($"У вас имеется {gold} золота, и {crystal} кристала.");
         }
     }
 }
