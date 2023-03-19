@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyHomeWork
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int receptionOfOnePersone = 10;
+            int receptionOfOldWomen = 15;
+
+            Console.WriteLine($"Прием одного человека: {receptionOfOnePersone} минут.");
+            Console.WriteLine($"Прием старушек: {receptionOfOldWomen} минут. \n");
+
+            Console.Write("Введите количество людей: ");
+            int people = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Введите количество старушек: ");
+            int oldWomen = Convert.ToInt32(Console.ReadLine());
+
+            int totalReceptione = (receptionOfOnePersone * people) + (receptionOfOldWomen * oldWomen);
+
+            int hours = 60;
+            int minutes = 60;
+            int totalhours = 0;
+            int totalminutes = 0;
+
+            totalhours += totalReceptione / hours;
+            totalminutes += totalReceptione % minutes;
+
+            Console.WriteLine($"Вы простоите в очереди: {totalhours} часов и {totalminutes} минут.");
+        }
+    }
+}
