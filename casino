@@ -1,0 +1,109 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MyHomeWork
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Добро пожаловать в казино");
+            Console.WriteLine("Доступные игры: Орел и Решка(1), ");
+            Console.WriteLine("Выбирите игру: ");
+            int chooseGame = Convert.ToInt32(Console.ReadLine());
+
+            switch (chooseGame) 
+            {
+                case 1:
+                    while (true)
+                    {
+                        gameOrelYReshka();
+                        Console.WriteLine("Хотите начать заново(1) либо покинуть игру(2)");
+                        int exitOrContinue = Convert.ToInt32(Console.ReadLine());
+                        if (exitOrContinue == 1)
+                        {
+                            Console.WriteLine("Вы начали игру заново");
+                        }
+                        if (exitOrContinue == 2)
+                        {
+                            Console.WriteLine("Вы покинулм игру");
+                            break;
+                        }
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Данной игры не существует");
+                    break;
+            }
+        }
+        static void gameOrelYReshka()
+        {
+            Random rand = new Random();
+            int randomOfGame = rand.Next(0, 10);
+
+            string orel = "Орел";
+            string reshka = "Решка";
+
+
+            Console.WriteLine("Добро пожаловать в Игру Орел и Решка!");
+            Console.Write("Для начала количество ваших денег: ");
+            int money = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Введите денежную ставку: ");
+            int batMoney = Convert.ToInt32(Convert.ToInt32(Console.ReadLine()));
+
+            if (batMoney <= money)
+            {
+                Console.Write("Теперь выбирете Орел или Решка: ");
+                string chooseOrelAndReshka = Console.ReadLine();
+
+                if (chooseOrelAndReshka == orel)
+                {
+                    Console.WriteLine("Хорошо теперь введите любую клавишу");
+                    Console.ReadKey();
+                    if (randomOfGame >= 5)
+                    {
+                        Console.WriteLine("Выпал Орел, поздравляю вы удвоили выигрышь");
+                        money += batMoney;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы проиграли, ваша сумма перешла к другому игроку");
+                        money -= batMoney;
+                    }
+                }
+                else if (chooseOrelAndReshka == reshka)
+                {
+                    Console.WriteLine("Хорошо теперь введите любую клавишу");
+                    Console.ReadKey();
+                    if (randomOfGame <= 5)
+                    {
+                        Console.WriteLine("Выпал Решка, поздравляю вы удвоили выигрышь");
+                        money += batMoney;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Вы проиграли, ваша сумма перешла к другому игроку");
+                        money -= batMoney;
+
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ошибка! попробуйте заново");
+                }
+
+                Console.WriteLine($"У вас на счету {money} долларов");
+            }
+            else
+            {
+                Console.WriteLine("Не хватает денег");
+            }
+        }
+    }
+}
